@@ -9,6 +9,7 @@ body {
     min-height: 100vh; 
     overflow-y: auto; 
     overflow-x: hidden;
+    
 }
 
 /* Posicionamiento del mapa de líneas */
@@ -105,23 +106,44 @@ body {
 /* --- SECCIÓN DE SERVICIOS (GRILLA) --- */
 /* Aseguramos que el contenedor de servicios no limite el tamaño */
 .services-container {
-    flex: 1; /* Esto empuja al footer hacia abajo */
-    padding-bottom: 50px; /* Espacio para que el último botón no pegue al footer */
+    flex: 1; 
+    padding: 80px 40px; /* Aumentamos el margen superior e inferior */
+    text-align: center;
+    max-width: 1200px; /* Evita que el texto se estire demasiado en pantallas anchas */
+    margin: 0 auto;    /* Centra el contenedor */
+}
+
+.services-container .title-main {
+    margin-bottom: 20px; /* Separa el título del párrafo de abajo */
+    letter-spacing: 2px;
+}
+
+.services-container p {
+    margin-bottom: 60px; /* Genera espacio antes de que empiecen las tarjetas */
+    line-height: 1.6;    /* Mejora la lectura del texto */
 }
 
 .services-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    margin-top: 40px;
+    gap: 40px; /* Aumentamos la separación entre los cuadros de 20px a 40px */
+    margin-top: 20px;
 }
 
 .service-card {
     background: rgba(17, 17, 17, 0.8);
     border: 1px solid #222;
-    padding: 40px;
+    padding: 60px 40px; /* Más aire adentro de cada cuadro */
     text-decoration: none;
-    transition: 0.3s;
+    transition: 0.4s ease;
+    border-radius: 4px; /* Un redondeado muy sutil para suavizar */
+}
+
+.service-card h3 { 
+    color: #ffffff; 
+    margin-bottom: 20px; /* Separa el nombre de la página de la descripción */
+    font-size: 20px; 
+    letter-spacing: 1px;
 }
 
 .service-card h3 { color: #ffffff;; margin: 15px 0; font-size: 18px; }
@@ -155,13 +177,14 @@ body {
 
 /* --- BARRA DE INFORMACIÓN (FOOTER) --- */
 .info-bar {
-    background: #111; /* Fondo oscuro sólido */
-    border-top: 1px solid #333; /* Borde un poco más claro para separar */
+    background: #111;
+    border-top: 1px solid #333;
     padding: 35px 40px;
     display: flex;
     width: 100%;
+    margin-top: auto; /* ESTO ES CLAVE: empuja el footer al fondo */
     position: relative;
-    z-index: 10; /* Asegura que esté por sobre el mapa SVG */
+    z-index: 10;
 }
 
 .info-card {
