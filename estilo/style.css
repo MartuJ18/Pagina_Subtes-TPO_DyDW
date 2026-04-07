@@ -1,11 +1,14 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-    font-family: 'Arial Black', sans-serif;
-    background-color: #000; /* Fondo negro total */
+    background-color: #000;
     color: #fff;
-    min-height: 100vh;
-    overflow: hidden;
+    margin: 0;
+    font-family: 'Arial Black', sans-serif;
+    /* CAMBIO: Permitir scroll si el contenido es largo */
+    min-height: 100vh; 
+    overflow-y: auto; 
+    overflow-x: hidden;
 }
 
 /* Posicionamiento del mapa de líneas */
@@ -30,7 +33,10 @@ body {
 .main-container {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    /* CAMBIO: No fijar la altura a 100vh, dejar que crezca */
+    min-height: 100vh; 
+    position: relative;
+    z-index: 1;
 }
 
 /* Navegación (Logo izquierda, Links derecha) */
@@ -62,10 +68,12 @@ body {
     text-align: center;
 }
 
-.hero-text h1 { font-size: 16px; letter-spacing: 12px; color: #FFD700; margin-bottom: 10px; }
+.hero-text h1 { font-size: 16px; letter-spacing: 12px; color: #ffffff; margin-bottom: 10px; }
 .title-main { font-size: 90px; line-height: 0.8; }
-.highlight { color: #ffffff; }
-
+.highlight { 
+    color: #FFD700; 
+    font-weight: 900;
+}
 /* Footer (Info Bar) */
 .info-bar {
     background: #111;
@@ -95,11 +103,10 @@ body {
 }
 
 /* --- SECCIÓN DE SERVICIOS (GRILLA) --- */
+/* Aseguramos que el contenedor de servicios no limite el tamaño */
 .services-container {
-    max-width: 1000px;
-    margin: 60px auto;
-    padding: 0 40px;
-    text-align: center;
+    flex: 1; /* Esto empuja al footer hacia abajo */
+    padding-bottom: 50px; /* Espacio para que el último botón no pegue al footer */
 }
 
 .services-grid {
@@ -185,4 +192,72 @@ body {
     font-size: 12px;
     color: #bbbbbb; /* Gris claro para que se lea bien sobre negro */
     margin-top: 4px;
+}
+/* --- ESPECIFICIDAD REFORZADA PARA LÍNEAS --- */
+
+/* Forzamos el contenedor para que sea una lista vertical */
+main.services-container {
+    display: block !important; /* Anula la grilla de la página de servicios si existiera */
+    max-width: 800px;
+    margin: 0 auto;
+    padding-top: 40px;
+}
+
+.lines-list-container {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 15px;
+    margin-top: 30px;
+    padding-bottom: 100px;
+}
+
+/* Estilo de los botones de línea */
+.lines-list-container .line-item {
+    background: #111 !important;
+    border: 1px solid #222 !important;
+    display: flex !important;
+    align-items: center;
+    padding: 20px;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.3s ease-in-out;
+}
+
+.lines-list-container .line-item:hover {
+    border-color: #FFD700 !important;
+    transform: translateX(10px);
+    background: #1a1a1a !important;
+}
+
+/* Círculo de la línea */
+.line-badge {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: 900;
+    color: #fff;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+
+/* Textos */
+.line-info {
+    text-align: left;
+}
+
+.line-info h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #fff;
+}
+
+.line-info p {
+    margin: 5px 0 0 0;
+    color: #666;
+    font-size: 14px;
+    font-family: sans-serif;
 }
