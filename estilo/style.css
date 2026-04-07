@@ -284,3 +284,74 @@ main.services-container {
     font-size: 14px;
     font-family: sans-serif;
 }
+/* --- ESTILOS TARJETAS DE HORARIOS (NUEVO DISEÑO BLOQUE) --- */
+
+/* Contenedor principal de la grilla de horarios */
+.schedules-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+    gap: 30px; /* Separación entre tarjetas */
+    max-width: 1000px;
+    margin: 40px auto;
+    padding-bottom: 80px;
+}
+
+/* 1. Estilo base de la tarjeta */
+.schedule-card {
+    background: #000; /* Fondo negro puro */
+    border: 3px solid; /* Borde grueso; el color lo definimos abajo */
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow: hidden; /* Mantiene la cabecera dentro de los bordes */
+}
+
+/* 2. Cabecera rectangular (Como en image_0.png) */
+.line-header-block {
+    padding: 15px 25px;
+    color: #000; /* Letra negra para contraste */
+    font-size: 24px;
+    font-weight: 900;
+    text-align: left; /* Alineado a la izquierda */
+    border-bottom: 3px solid; /* Borde inferior entre cabecera y cuerpo */
+}
+
+/* 3. Cuerpo negro con la información */
+.line-body {
+    padding: 25px;
+    color: #fff;
+    font-family: sans-serif; /* Fuente más legible para horarios */
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.line-body p strong {
+    color: #FFD700; /* Resalta los días en dorado */
+    margin-right: 10px;
+}
+
+/* --- 4. CONFIGURACIÓN DE COLORES POR LÍNEA --- */
+
+/* Línea A (Celeste) */
+.line-a { border-color: #FFD700; }
+.line-a .line-header-block { background-color: #00B4D8; border-color: #00B4D8; }
+
+/* Línea B (Rojo) */
+.line-b { border-color: #FFD700; }
+.line-b .line-header-block { background-color: #E63946; border-color: #E63946; }
+
+/* Línea C (Azul) */
+.line-c { border-color: #FFD700; }
+.line-c .line-header-block { background-color: #1D4E89; border-color: #1D4E89; }
+
+/* Línea D (Verde) */
+.line-d { border-color: #FFD700; }
+.line-d .line-header-block { background-color: #2DC653; border-color: #2DC653; }
+
+/* Línea E (Violeta) */
+.line-e { border-color: #FFD700; }
+.line-e .line-header-block { background-color: #7B2FBE; border-color: #7B2FBE; }
+
+/* Línea H (Amarillo) */
+.line-h { border-color: #FFD700; }
+.line-h .line-header-block { background-color: #FFD700; border-color: #FFD700; }
